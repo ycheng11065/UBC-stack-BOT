@@ -1,12 +1,19 @@
 {
-  "function_name": "welcome",
+  "function_name": "statx00lvlcourses",
   "embed": {
-    "title": "Welcome",
+    "title": "statistics required courses",
     "fields": [
       {
-        "field_name": "Welcome to the UBC Degree Navibot here to help you plan your degree! React to its message according to what Navi says based on where you want to go. The <button> brings you back a page  and <button>  returns to this page to start over.",
-        "field_value": ":one:  course navigation \n :two: list of commands",
+        "field_name": "",
+        "field_value": ":one:  100-level courses \n :two:  200-level courses \n :three:  300 and 400-level courses",
         "field_inline": false
+        
+      },
+      {
+        "field_name": "",
+        "field_value": "36 credits of electives, including other general science requirements",
+        "field_inline": false
+        
       }
     ]
   }

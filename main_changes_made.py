@@ -33,7 +33,9 @@ my_secret = os.environ['key']  # Our token for discord bot to run
 
 class NaviBot(commands.Bot):
 
-  def __init__(self, ):
+  def __init__(self, *args, **kwargs):
+    super(NaviBot, self).__init__(*args)
+    
   additional_buttons = {}
   add_button(additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
   add_button(additional_buttons, BACK_BUTTON_NAME, BACK_ICON)

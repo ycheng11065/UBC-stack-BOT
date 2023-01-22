@@ -1,8 +1,13 @@
 {
   "function_name": "menu",
   "embed": {
-    "title": "Menu",
+    "title": "[Menu](google.com)",
     "fields": [
+      {
+        "field_name": "welcome to the UBC NAVI-BOT here to help you plan your degree!",
+        "field_value": "react to its message according to what Navi says based on where you want to go \n the ⬅ returns to the previous page and ⏪  returns to this page to start over",
+        "field_inline": false
+      },
       {
         "field_name": "",
         "field_value": ":one:  course navigation \n :two: list of commands",
