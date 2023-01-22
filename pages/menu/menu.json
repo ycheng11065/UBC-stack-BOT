@@ -1,11 +1,11 @@
 {
   "function_name": "menu",
   "embed": {
-    "title": "select your command",
+    "title": "Menu",
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  course navigation",
+        "field_value": ":one:  course navigation \n :two: list of commands",
         "field_inline": false
       }
     ]

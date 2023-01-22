@@ -11,13 +11,13 @@
       },
       {
         "field_name": "to third year",
-        "field_value": "complete at least 48 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits",
+        "field_value": "complete at least 48 credits",
         "field_inline": false
         
       },
       {
         "field_name": "to fourth year",
-        "field_value": "upper level specialization specific courses, not including electives",
+        "field_value": "complete at least 72 credits \n complete all lower level requirements \n all lower level and at least 40% of upper level specialization specific courses, not including electives",
         "field_inline": false
       }  
     ]

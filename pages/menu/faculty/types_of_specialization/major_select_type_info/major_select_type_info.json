@@ -1,11 +1,11 @@
 {
   "function_name": "major_select_one",
   "embed": {
-    "title": "select one",
+    "title": "select type of info",
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  summary \n :two:  general requirements \n :three: specializations",
+        "field_value": ":one:  summary \n :two:  general science requirements \n :three: specializations",
         "field_inline": false
       }
     ]
