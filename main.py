@@ -32,7 +32,8 @@ ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
 my_secret = os.environ['key']  # Our token for discord bot to run
 
 def create_embed(curr_menu, author):
-  embed_to_return = discord.Embed(title=curr_menu.title)
+  embed_to_return = discord.Embed(title=curr_menu.title,
+                                 colour=discord.Colour.blue())
   embed_to_return.set_footer(text=f'Hi {author}')
   for field in curr_menu.list_selection:
     embed_to_return.add_field(name=field["field_name"],
@@ -50,9 +51,13 @@ add_button(additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
 intents = discord.Intents.default()
 intents.message_content = True
 
+activity = discord.Activity(type=discord.ActivityType.watching,
+                              name="for someone to type !menu")
+
 bot = commands.Bot(command_prefix='!',
-                   intents=intents,
-                   help_command=EmbedHelpCommand())
+                activity=activity,
+                intents=intents,
+                status=discord.Status.idle)
 
 
 @bot.command()
