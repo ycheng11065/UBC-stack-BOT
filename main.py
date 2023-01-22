@@ -31,8 +31,9 @@ ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
 
 my_secret = os.environ['key']  # Our token for discord bot to run
 
-def create_embed(curr_menu):
+def create_embed(curr_menu, author):
   embed_to_return = discord.Embed(title=curr_menu.title)
+  embed_to_return.set_footer(text=f'Hi {author}')
   for field in curr_menu.list_selection:
     embed_to_return.add_field(name=field["field_name"],
                               value=field["field_value"],
@@ -41,6 +42,10 @@ def create_embed(curr_menu):
 
 def add_button(dict_buttons, button_name, button_emoji):
   dict_buttons[button_name] = button_emoji
+
+additional_buttons = {}
+add_button(additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
+add_button(additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -56,15 +61,13 @@ async def menu(ctx):
   #  & update the current node's embed, and set the set of buttons (= the number of its children)
   stack = []
   curr_node = files_manager.return_root_of_tree()
-  curr_embed = create_embed(curr_node)
+  curr_embed = create_embed(curr_node, ctx.author)
   curr_num_buttons = len(curr_node.list_children)
   
   number_buttons = ALL_BUTTONS[0:curr_num_buttons]
-  additional_buttons = {}
-  add_button(additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
-  add_button(additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
 
   curr_msg = await ctx.send(embed=curr_embed)
+  
 
   # loop while execution (might wanna set an ending condition / command)
   while True:
@@ -86,7 +89,7 @@ async def menu(ctx):
             timeout=60.0)
 
     except asyncio.TimeoutError:
-        embed = create_embed(curr_node)
+        embed = create_embed(curr_node, ctx.author)
         embed.set_footer(text="Timed Out.")
         await curr_msg.clear_reactions()
     
@@ -96,7 +99,10 @@ async def menu(ctx):
 
         # process the additional buttons FIRST
         if (reaction.emoji == additional_buttons[BACK_BUTTON_NAME]):
-          next_node = stack.pop()
+          if len(stack) != 0:
+            next_node = stack.pop()
+          else:
+            next_node = curr_node
         
         elif (reaction.emoji == additional_buttons[MENU_BUTTON_NAME]):
           next_node = files_manager.return_root_of_tree()
@@ -113,7 +119,7 @@ async def menu(ctx):
       
     # 3) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
         curr_node = next_node
-        curr_embed = create_embed(curr_node)
+        curr_embed = create_embed(curr_node, ctx.author)
         curr_num_buttons = len(curr_node.list_children)
         new_number_buttons = ALL_BUTTONS[0:curr_num_buttons]
 

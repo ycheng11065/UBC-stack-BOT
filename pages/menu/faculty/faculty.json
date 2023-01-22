@@ -6,12 +6,12 @@
       {
         "field_name": "",
         "field_value": ":one:  science",
-        "field_inline": true
+        "field_inline": false
       }, 
       {
         "field_name": "",
         "field_value": ":two: art",
-        "field_inline": true
+        "field_inline": false
       }
     ]
   }

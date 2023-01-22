@@ -1,0 +1,13 @@
+{
+  "function_name": "welcome",
+  "embed": {
+    "title": "Welcome",
+    "fields": [
+      {
+        "field_name": "Welcome to the UBC Degree Navibot here to help you plan your degree! React to its message according to what Navi says based on where you want to go. The <button> brings you back a page  and <button>  returns to this page to start over.",
+        "field_value": ":one:  course navigation \n :two: list of commands",
+        "field_inline": false
+      }
+    ]
+  }
+}
