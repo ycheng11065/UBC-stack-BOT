@@ -1,0 +1,20 @@
+{
+  "function_name": "cpscx00lvlcourses",
+  "embed": {
+    "title": "computer science required courses",
+    "fields": [
+      {
+        "field_name": "",
+        "field_value": ":one:  100-level courses \n :two:  200-level courses \n :three:  300 and 400-level courses"
+        "inline": false
+        
+    ]
+    [
+      {
+        "field_name": "",
+        "field_value": "52 credits of electives"
+        "inline": false
+        
+    ]
+  }
+}

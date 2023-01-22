@@ -1,0 +1,12 @@
+{
+  "function_name": "communication",
+  "embed": {
+    "title": "communication requirements",
+    "fields": [
+      {
+        "field_name": "to second year",
+        "field_value": "WRDS 150B \n ENGL 110 \n ENGL 111 \n SCIE 113 \n SCIE 300 `(only for combined major in science)` \n CHEM 300 `(only for chemistry majors)`"
+        
+    ]
+  }
+}

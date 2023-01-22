@@ -1,0 +1,18 @@
+{
+  "function_name": "faculty",
+  "embed": {
+    "title": "select your faculty",
+    "fields": [
+      {
+        "field_name": "",
+        "field_value": ":one:  science",
+        "field_inline": true
+      }, 
+      {
+        "field_name": "",
+        "field_value": ":two: art",
+        "field_inline": true
+      }
+    ]
+  }
+}

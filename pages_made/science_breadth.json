@@ -1,0 +1,19 @@
+{
+  "function_name": "science_breadth_req",
+  "embed": {
+    "title": "science breadth requirement",
+    "fields": [
+      {
+        "field_name": "all science courses fall under the following categories:",
+        "field_value": "mathematics \n biology \n chemistry \n physics \n computer science \n statistics \n earth and planetary science"
+        
+    ]
+    [
+      {
+        "field_name": "students in a major or honours program must complete at least 3 credits from 6 of the 7 categories",
+    "inline": false
+        
+        
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "function_name": "promotional_req",
+  "embed": {
+    "title": "promotional requirements",
+    "fields": [
+      {
+        "field_name": "to second year",
+        "field_value": "complete at least 24 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits"
+        "inline": false
+        
+    ]
+    [
+      {
+        "field_name": "to third year",
+        "field_value": "complete at least 48 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits"
+        "inline": false
+        
+    ]
+    [
+      {
+        "field_name": "to fourth year",
+        "field_value": "upper level specialization specific courses, not including electives"
+        "inline": false
+        
+    ]
+  }
+}

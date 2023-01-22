@@ -1,0 +1,13 @@
+{
+  "function_name": "majorslist",
+  "embed": {
+    "title": "list of majors",
+    "fields": [
+      {
+        "field_name": "",
+        "field_value": ":one:  computer science \n :two:  option 2"
+        "inline": false
+        
+    ]
+  }
+}

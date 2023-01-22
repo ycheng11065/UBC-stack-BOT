@@ -1,0 +1,13 @@
+{
+  "function_name": "major_select_one",
+  "embed": {
+    "title": "select one",
+    "fields": [
+      {
+        "field_name": "",
+        "field_value": ":one:  summary \n :two:  general requirements \n :three: specializations"
+        "inline": false
+        
+    ]
+  }
+}
