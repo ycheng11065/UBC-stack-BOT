@@ -5,30 +5,27 @@
     "fields": [
       {
         "field_name": "promotional requirements",
-        "field_value": "none"
-        "inline": false
-        
-    ]
-    [
+        "field_value": "none",
+        "field_inline": false
+      },
+    
       {
         "field_name": "credits",
-        "field_value": ""
-        "inline": true
-        
-    ]
-    [
+        "field_value": "",
+        "field_inline": true
+      },
+      
       {
         "field_name": "graduation requirements",
-        "field_value": "CPSC 310 \n CPSC 313 \n CPSC 320 \n CPSC 300-level or higher \n CPSC 400-level or higher"
-        "inline": false
-        
-    ]
-    [
+        "field_value": "CPSC 310 \n CPSC 313 \n CPSC 320 \n CPSC 300-level or higher \n CPSC 400-level or higher",
+        "field_inline": false
+      },
+      
       {
         "field_name": "credits",
-        "field_value": "4 \n 3 \n 3 \n 9 \n 9"
-        "inline": true
-        
+        "field_value": "4 \n 3 \n 3 \n 9 \n 9",
+        "field_inline": true
+      }
     ]
   }
 }

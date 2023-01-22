@@ -5,30 +5,28 @@
     "fields": [
       {
         "field_name": "promotional requirements",
-        "field_value": "CPSC 110 \n or CPSC 103 + CPSC 107"
-        "inline": false
+        "field_value": "CPSC 110 \n or CPSC 103 + CPSC 107",
+        "field_inline": false
         
-    ]
-    [
+      },
+    
       {
         "field_name": "credits",
-        "field_value": "4 \n 6"
-        "inline": true
-        
-    ]
-    [
+        "field_value": "4 \n 6",
+        "field_inline": true
+      },
+    
       {
         "field_name": "graduation requirements",
-        "field_value": "communication requirement \n CPSC 121 \n MATH 100 \n MATH 101"
-        "inline": false
-        
-    ]
-    [
+        "field_value": "communication requirement \n CPSC 121 \n MATH 100 \n MATH 101",
+        "field_inline": false
+      },
+    
       {
         "field_name": "credits",
-        "field_value": "6 \n 4 \n 3 \n 3"
-        "inline": true
-        
+        "field_value": "6 \n 4 \n 3 \n 3",
+        "field_inline": true
+      }
     ]
   }
 }

@@ -15,6 +15,11 @@ class Menu():
     #   -> create the menu page content out of it
     # -> read the other folders in the path
     #  for each folder in the path, create a new menu object 
+
+    self.list_selection = []
+    self.list_children = []
+    self.title = ''
+    self.func_name = ''
     
     # if it contains a json with same name as itself
     page_found = False
@@ -52,13 +57,4 @@ class Menu():
 
 def return_root_of_tree():
   root = Menu(ORIGINAL_MENU_PATH)
-  return root 
-
-  # read every folder in folder
-  
-  # for each folder, read the json that has the same name as the folder
-  # add them all to a list
-  # length of the list gives us the number of buttons
-  # index of list gives us the pages we jump to
-  # content we show in that menu is read from the json that is the same name as the original folder
-  # after selection, we call the same function that reads everything on the new json
+  return root

@@ -5,23 +5,21 @@
     "fields": [
       {
         "field_name": "to second year",
-        "field_value": "complete at least 24 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits"
-        "inline": false
+        "field_value": "complete at least 24 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits",
+        "field_inline": false
         
-    ]
-    [
+      },
       {
         "field_name": "to third year",
-        "field_value": "complete at least 48 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits"
-        "inline": false
+        "field_value": "complete at least 48 credits \n at least 15 credits of 100-level science \n all completed within 48 attempted credits",
+        "field_inline": false
         
-    ]
-    [
+      },
       {
         "field_name": "to fourth year",
-        "field_value": "upper level specialization specific courses, not including electives"
-        "inline": false
-        
+        "field_value": "upper level specialization specific courses, not including electives",
+        "field_inline": false
+      }  
     ]
   }
 }

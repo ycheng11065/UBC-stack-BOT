@@ -5,9 +5,9 @@
     "fields": [
       {
         "field_name": "students must complete",
-        "field_value": "72 credits of science courses \n 12 credits of arts courses"
-        "inline": false
-        
+        "field_value": "72 credits of science courses \n 12 credits of arts courses",
+        "field_inline": false
+      }
     ]
   }
 }

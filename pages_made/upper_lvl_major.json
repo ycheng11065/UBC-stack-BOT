@@ -6,15 +6,14 @@
       {
         "field_name": "without a minor",
         "field_value": "30 out of 48 credits from 300 level or higher courses must be in science",
-        "inline": false
+        "field_inline": false
         
-    ]
-    [
+      },
       {
         "field_name": "with a minor",
         "field_value": "42 out of 48 credits from 300 level or higher courses must be in science",
-        "inline": false
-        
+        "field_inline": false
+      }
     ]
   }
 }

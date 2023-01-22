@@ -5,9 +5,9 @@
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  summary \n :two:  general requirements \n :three: specializations"
-        "inline": false
-        
+        "field_value": ":one:  summary \n :two:  general requirements \n :three: specializations",
+        "field_inline": false
+      }
     ]
   }
 }

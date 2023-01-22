@@ -5,30 +5,27 @@
     "fields": [
       {
         "field_name": "promotional requirements",
-        "field_value": "none"
-        "inline": false
-        
-    ]
-    [
+        "field_value": "none",
+        "field_inline": false
+      },
+    
       {
         "field_name": "credits",
-        "field_value": ""
-        "inline": true
-        
-    ]
-    [
+        "field_value": "",
+        "field_inline": true
+      },
+    
       {
         "field_name": "graduation requirements",
-        "field_value": "CPSC 210 \n CPSC 213 \n CPSC 221 \n MATH 200 \n MATH 221 \n STAT 241 or 251"
-        "inline": false
-        
-    ]
-    [
+        "field_value": "CPSC 210 \n CPSC 213 \n CPSC 221 \n MATH 200 \n MATH 221 \n STAT 241 or 251",
+        "field_inline": false
+      },
+    
       {
         "field_name": "credits",
-        "field_value": "4 \n 4 \n 4 \n 3 \n 3 \n 3"
-        "inline": true
-        
+        "field_value": "4 \n 4 \n 4 \n 3 \n 3 \n 3",
+        "field_inline": true
+      }
     ]
   }
 }
