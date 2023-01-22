@@ -3,7 +3,13 @@ import discord
 
 async def communication_req(ctx):
     embed = discord.Embed(title='communication requirement', color = discord.Color.blue())
-    embed.add_field(name='choose 2 of the following', value='[CPSC 110](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=110) \n or [CPSC 103](LINK) + [CPSC 107](LINK)', inline=False)
+    embed.add_field(name='promotional requirements', value='none', inline=True)
+    embed.add_field(name='', value='', inline=True)
+    embed.add_field(name='credits', value='', inline=True)
+    
+    embed.add_field(name='graduation requirements', value='[CPSC 210](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=210) \n [CPSC 213](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=213) \n [CPSC 221](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=221) \n [MATH 200](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=200) \n [MATH 221](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=221) \n [STAT 251](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=251)', inline=True)
+    embed.add_field(name='', value='', inline=True)
+    embed.add_field(name='credits', value='4 \n 4 \n 4 \n 3 \n 3 \n 3', inline=True)
     await ctx.send(embed=embed)
 
   
@@ -92,7 +98,7 @@ if __name__ == "main":
   #cpsc100lvl page
   cpsc100lvl = embed = discord.Embed(title='100 level courses', color=discord.Color.blue())
   cpsc100lvl.add_field(name='promotional requirements', value='CPSC 110 \n or CPSC 103 + CPSC 107', inline=False)
-  cpsc100lvl.add_field(name='graduation requirements', value='communication requirements \n CPSC 121 [Here is the link](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=121) \n MATH 100 \n MATH 101', inline=False)
+  cpsc100lvl.add_field(name='graduation requirements', value='communication requirements \n CPSC 121 \n MATH 100 \n MATH 101', inline=False)
   
   #cpsc300lvl page
   cpsc300lvl = embed = discord.Embed(title='200 level courses', color=discord.Color.blue())

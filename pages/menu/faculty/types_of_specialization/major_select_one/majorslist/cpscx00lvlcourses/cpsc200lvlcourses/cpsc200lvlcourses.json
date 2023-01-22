@@ -1,0 +1,40 @@
+{
+  "function_name": "cpsc200lvlcourses",
+  "embed": {
+    "title": "200-level courses",
+    "fields": [
+      {
+        "field_name": "promotional requirements",
+        "field_value": "none",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": "credits",
+        "field_value": "",
+        "field_inline": true
+      },
+    
+      {
+        "field_name": "graduation requirements",
+        "field_value": "[CPSC 210](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=210) \n [CPSC 213](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=213) \n [CPSC 221](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=221) \n [MATH 200](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=200) \n [MATH 221](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=221) \n [STAT 251](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=251)",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+    
+      {
+        "field_name": "credits",
+        "field_value": "4 \n 4 \n 4 \n 3 \n 3 \n 3",
+        "field_inline": true
+      }
+    ]
+  }
+}

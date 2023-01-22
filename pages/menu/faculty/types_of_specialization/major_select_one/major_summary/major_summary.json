@@ -1,7 +1,7 @@
 {
   "function_name": "major_summary",
   "embed": {
-    "title": "summary",
+    "title": "summary of overall credits",
     "fields": [
       {
         "field_name": "minimum of the following",
@@ -10,6 +10,11 @@
       },
       {
         "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": ":",
         "field_value": "120 \n 48",
         "field_inline": true
       },
@@ -20,16 +25,26 @@
       },  
       {
         "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
         "field_value": "72 \n 30",
         "field_inline": true
       },
       {
         "field_name": "maximum of the following:",
         "field_value": "double counted \n neither arts or science",
-        "field_inline": false
+        "field_inline": true
       },
       {
         "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": ":",
         "field_value": "0 \n 24",
         "field_inline": true
       }  

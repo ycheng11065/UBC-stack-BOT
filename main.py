@@ -40,35 +40,23 @@ bot = commands.Bot(command_prefix='!',
                    intents=intents,
                    help_command=EmbedHelpCommand())
 
-page1 = discord.Embed(
-  title='Menu',
-  description="This country is not supported, you can ask me to add it" +
-  "[here](https://degree-navigator.as.it.ubc.ca/dn4v/Login/dagdisclaimer.asp).",
-  color=discord.Colour.blue(),
-url='https://brand.ubc.ca/files/2018/09/Logos_1_2CrestDownload_768px.jpg')
-
-node_currently_in = files_manager.return_root_of_tree()
-
-num_buttons = len(node_currently_in.list_children)
-list_embeds = []
-
-for child in node_currently_in.list_children:
-  embed_i = create_embed(child)
-  list_embeds.append(embed_i)
-
-bot.help_pages = list_embeds
-
-
 @bot.command()
 async def menu(ctx):
-  emoji_button = ALL_BUTTONS[0:3]
-  current = 0
-  msg = await ctx.send(embed=bot.help_pages[current])
-
-  for button in emoji_button:
-    await msg.add_reaction(button)
-
+  node_currently_in = files_manager.return_root_of_tree()
+  num_buttons = 1
+  msg = await ctx.send(embed=create_embed(node_currently_in))
+  
   while True:
+    
+    emoji_button = ALL_BUTTONS[0:num_buttons]
+    
+    bot.help_pages = []
+    for child in node_currently_in.list_children:
+      bot.help_pages.append(create_embed(child)) 
+  
+    for button in emoji_button:
+      await msg.add_reaction(button)
+  
     try:
       reaction, user = await bot.wait_for(
         "reaction_add",
@@ -77,27 +65,65 @@ async def menu(ctx):
         timeout=60.0)
 
     except asyncio.TimeoutError:
-      embed = bot.help_pages[current]
+      embed = create_embed(child)
       embed.set_footer(text="Timed Out.")
       await msg.clear_reactions()
 
     else:
-      previous_page = current
+      next_page_index = 0
       
-      if reaction.emoji == ONE:
-        current = 0
-
-      elif reaction.emoji == TWO:
-        current = 1
-
-      elif reaction.emoji == THREE:
-        current = 2
+      for i in range(len(emoji_button)):
+        if reaction.emoji == emoji_button[i]:
+          next_page_index = i
+          break
 
       for button in emoji_button:
         await msg.remove_reaction(button, ctx.author)
 
-      if current != previous_page:
-        await msg.edit(embed=bot.help_pages[current])
+      node_currently_in = node_currently_in.list_children[next_page_index]
+      num_buttons = len(node_currently_in.list_children)
+      await msg.edit(embed=bot.help_pages[next_page_index])
+        
+
+
+# async def menu(ctx):
+#   emoji_button = ALL_BUTTONS[0:3]
+#   current = 0
+#   msg = await ctx.send(embed=bot.help_pages[current])
+
+#   for button in emoji_button:
+#     await msg.add_reaction(button)
+
+#   while True:
+#     try:
+#       reaction, user = await bot.wait_for(
+#         "reaction_add",
+#         check=lambda reaction, user: user == ctx.author and reaction.emoji in
+#         emoji_button,
+#         timeout=60.0)
+
+#     except asyncio.TimeoutError:
+#       embed = bot.help_pages[current]
+#       embed.set_footer(text="Timed Out.")
+#       await msg.clear_reactions()
+
+#     else:
+#       previous_page = current
+      
+#       if reaction.emoji == ONE:
+#         current = 0
+
+#       elif reaction.emoji == TWO:
+#         current = 1
+
+#       elif reaction.emoji == THREE:
+#         current = 2
+
+#       for button in emoji_button:
+#         await msg.remove_reaction(button, ctx.author)
+
+#       if current != previous_page:
+#         await msg.edit(embed=bot.help_pages[current])
 
 
 @bot.event

@@ -1,7 +1,7 @@
 import json
 import os
 
-ORIGINAL_MENU_PATH = "./pages/menu/faculty/"
+ORIGINAL_MENU_PATH = "./pages/menu/"
 
 class Menu():
   list_selection = []

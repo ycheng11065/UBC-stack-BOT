@@ -1,0 +1,13 @@
+{
+  "function_name": "menu",
+  "embed": {
+    "title": "select your command",
+    "fields": [
+      {
+        "field_name": "",
+        "field_value": ":one:  course navigation",
+        "field_inline": false
+      }
+    ]
+  }
+}

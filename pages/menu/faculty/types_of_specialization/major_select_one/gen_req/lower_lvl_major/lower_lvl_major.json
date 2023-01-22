@@ -7,13 +7,11 @@
         "field_name": "foundational requirement",
         "field_value": "either grade 12 level or 3 100-level credits in all of biology, chemistry, and physics",
         "field_inline": false
-        
       },
-    
       {
         "field_name": "science lab requirement",
-    "field_value": "complete at least one 100-level lab in science",
-    "field_inline": false
+        "field_value": "complete at least one 100-level lab in science",
+        "field_inline": false
       }
     ]
   }
