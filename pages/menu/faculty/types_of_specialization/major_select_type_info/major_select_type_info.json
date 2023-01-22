@@ -5,7 +5,17 @@
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  summary \n :two:  general science requirements \n :three: specializations",
+        "field_value": ":one:  summary",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":two:  general science requirements",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":three: specializations",
         "field_inline": false
       }
     ]

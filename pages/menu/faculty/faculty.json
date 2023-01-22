@@ -1,10 +1,10 @@
 {
   "function_name": "faculty",
   "embed": {
-    "title": "Faculty selection",
+    "title": "faculty",
     "fields": [
       {
-        "field_name": "",
+        "field_name": "choose your desired faculty",
         "field_value": ":one:  science",
         "field_inline": false
       }, 

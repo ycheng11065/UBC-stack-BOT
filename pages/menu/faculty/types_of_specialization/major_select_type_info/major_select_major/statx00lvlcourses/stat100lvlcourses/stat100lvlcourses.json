@@ -1,0 +1,39 @@
+{
+  "function_name": "stat100lvlcourses",
+  "embed": {
+    "title": "100-level courses",
+    "fields": [
+      {
+        "field_name": "promotional requirements",
+        "field_value": "[MATH 101](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=101)",
+        "field_inline": true
+        
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline":true
+      },
+      {
+        "field_name": "credits",
+        "field_value": "3",
+        "field_inline": true
+      },
+      {
+        "field_name": "graduation requirements",
+        "field_value": "communication requirement \n [CPSC 110](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=110) or CPSC 103 + CPSC 107 \n [DSCI 100]( https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=DSCI&course=100) \n [MATH 100](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=100) ",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": "credits",
+        "field_value": "6 \n 4 `or 6` \n 3 \n 3",
+        "field_inline": true
+      }
+    ]
+  }
+}

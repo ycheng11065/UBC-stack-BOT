@@ -5,8 +5,33 @@
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  communication requirement \n :two:  science and art requirement \n :three:  science breadth requirement \n :four:  lower level requirement \n :five:  upper year requirement \n :six:  promotional requirement",
+        "field_value": ":one:  communication requirement",
         "field_inline": false  
+      },
+      {
+        "field_name": "",
+        "field_value":" :two:  science and art requirement",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":three:  science breadth requirement",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":four:  lower level requirement",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":five:  upper year requirement",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":six:  promotional requirement",
+        "field_inline": false
       }
     ]
   }

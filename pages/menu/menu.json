@@ -1,16 +1,31 @@
 {
   "function_name": "menu",
   "embed": {
-    "title": "[Menu](google.com)",
+    "title": "Menu",
     "fields": [
       {
-        "field_name": "welcome to the UBC NAVI-BOT here to help you plan your degree!",
-        "field_value": "react to its message according to what Navi says based on where you want to go \n the ⬅ returns to the previous page and ⏪  returns to this page to start over",
+        "field_name": "welcome to the UBC NAVI-BOT, here to help you plan your degree!",
+        "field_value": "react to Navi's message according to where you want to go",
         "field_inline": false
       },
       {
         "field_name": "",
-        "field_value": ":one:  course navigation \n :two: list of commands",
+        "field_value":":arrow_left:  returns to the previous page",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":":rewind:  returns to menu page to start over \n \n *this is not a replacement for official UBC info*",
+        "field_inline": false
+      },
+      {
+        "field_name": "",
+        "field_value":"\n",
+        "field_inline": false
+      },
+      {
+        "field_name": "navigate to :",
+        "field_value": ":one:  course navigation",
         "field_inline": false
       }
     ]

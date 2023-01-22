@@ -5,7 +5,7 @@
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  major \n :two:  combined major \n :three: honours \n :four:  combined honours \n :five:  minor",
+        "field_value": ":one:  major",
         "field_inline": false
       }
     ]

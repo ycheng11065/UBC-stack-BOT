@@ -1,0 +1,45 @@
+{
+  "function_name": "stat200lvlcourses",
+  "embed": {
+    "title": "200-level courses",
+    "fields": [
+      {
+        "field_name": "promotional requirements",
+        "field_value": "[STAT 200](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=200)",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+      {
+        "field_name": "credits",
+        "field_value": "",
+        "field_inline": true
+      },
+    
+      {
+        "field_name": "graduation requirements",
+        "field_value": "[CPSC 210](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=210) or [MATH 210](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-section&dept=MATH&course=210&section=201) \n [MATH 200](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=200) \n [MATH 220](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=220) \n [MATH 221](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=221) \n [STAT 200](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=200) \n [STAT 201](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=201)",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "",
+        "field_inline": true
+      },
+    
+      {
+        "field_name": "credits",
+        "field_value": "4 \n 3 \n 3 \n 3 \n 3 \n 3",
+        "field_inline": true
+      },
+      {
+        "field_name": "",
+        "field_value": "*STAT/MATH 302 is recommended in second year*",
+        "field_inline": true
+      }
+    ]
+  }
+}

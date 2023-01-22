@@ -5,7 +5,7 @@
     "fields": [
       {
         "field_name": "promotional requirements",
-        "field_value": "[CPSC 110](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=110) \n or [CPSC 103](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=103) + [CPSC 107](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=107)",
+        "field_value": "[CPSC 110](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=110) `or CPSC 103 + CPSC 107`",
         "field_inline": true
         
       },
@@ -16,7 +16,7 @@
       },
       {
         "field_name": "credits",
-        "field_value": "4 \n 6",
+        "field_value": "4 `or 6`",
         "field_inline": true
       },
       {

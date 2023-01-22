@@ -5,9 +5,14 @@
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  computer science \n :two:  statistics",
+        "field_value": ":one:  computer science",
         "field_inline": false
-      }  
+      },
+      {
+        "field_name": "",
+        "field_value":":two:  statistics",
+        "field_inline": false
+      }
     ]
   }
 }

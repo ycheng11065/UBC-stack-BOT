@@ -1,27 +1,31 @@
 {
-  "function_name": "cpscx00lvlcourses",
+  "function_name": "statx00lvlcourses",
   "embed": {
-    "title": "computer science required courses",
+    "title": "statistics required courses",
     "fields": [
       {
         "field_name": "",
         "field_value": ":one:  100-level courses",
         "field_inline": false
+        
       },
       {
         "field_name": "",
         "field_value": ":two:  200-level courses",
         "field_inline": false
+        
       },
       {
         "field_name": "",
         "field_value": ":three:  300 and 400-level courses",
         "field_inline": false
+        
       },
       {
         "field_name": "",
-        "field_value": "52 credits of electives, including other general science requirements",
+        "field_value": "37 credits of electives, including other general science requirements",
         "field_inline": false
+        
       }
     ]
   }
