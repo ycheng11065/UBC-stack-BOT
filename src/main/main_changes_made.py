@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 import os
-from help import EmbedHelpCommand
-import windows
+from main.help import EmbedHelpCommand
+import main.windows as windows
 import files_manager
 import asyncio
 
