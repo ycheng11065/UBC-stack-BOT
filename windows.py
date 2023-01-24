@@ -192,4 +192,26 @@ if __name__ == "main":
   
     
   
-  faculty_pages1 =  {"page": faculty, "children":[{"page":types_of_specialization, "children": [{"page":major_select_one, "children":[{"page":major_summary, "children":[{"page":general_science_req, "children":[]}]}, {"page":major_general_reqs, "children":[ {"page":communication_req, "children":[]}, {"page":science_and_art, "children":[]}, {"page":science_breadth_major, "children":[]}, {"page":lower_level, "children":[]}, {"page":upper_level_major, "children":[]}, {"page":promotional_req, "children":[]}]}, {"page":specialization_list, "children":[{"page":cpscx00lvl, "children":[{"page":cpsc100lvl, "children":[]}, {"page":cpsc200lvl, "children":[]}, {"page":cpsc300lvl, "children":[]}]}]}]}]}]}
+  faculty_pages1 =  {
+    "page": faculty, 
+    "children":[
+      {
+        "page":types_of_specialization, 
+        "children": [
+          {
+            "page":major_select_one, 
+            "children":[
+              {
+                "page":major_summary, 
+                "children":[
+                  {
+                    "page":general_science_req, 
+                    "children":[]
+                  }
+                ]
+              }, 
+              {
+                "page":major_general_reqs, 
+                "children":[ 
+                  {
+                    "page":communication_req, "children":[]}, {"page":science_and_art, "children":[]}, {"page":science_breadth_major, "children":[]}, {"page":lower_level, "children":[]}, {"page":upper_level_major, "children":[]}, {"page":promotional_req, "children":[]}]}, {"page":specialization_list, "children":[{"page":cpscx00lvl, "children":[{"page":cpsc100lvl, "children":[]}, {"page":cpsc200lvl, "children":[]}, {"page":cpsc300lvl, "children":[]}]}]}]}]}]}

@@ -1,0 +1,6 @@
+
+Akira 2023/01/24
+1) reorganize the file structure so that it reflects the ui / backside split
+2) reorganize the classes in an accordingly fashion
+3) debug the code so that it runs faster and without bug
+4) learn how to use buttons and employ them instead of reactions
