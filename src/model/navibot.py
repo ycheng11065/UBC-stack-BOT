@@ -33,12 +33,12 @@ class NaviBot(commands.Bot):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
   
+
   # Sets up the bot such that it has additional buttons, current node and
   # other attributes initialized; should run each time we call menu
   def setUp(self, user_using_now=None):
     # declaring the variables
     self.option_buttons = {}
-    self.number_buttons = []
     self.curr_msg = None
     self.user_using_now = None
 
@@ -49,6 +49,10 @@ class NaviBot(commands.Bot):
 
     #Setup the current node
     self.curr_node = PageTree.get_root()
+
+    #Setup number buttons
+    curr_num_buttons = len(self.curr_node.list_children)
+    self.number_buttons = ALL_BUTTONS[0:curr_num_buttons]
 
     #Setup the stack
     self.stack = []
@@ -68,57 +72,45 @@ class NaviBot(commands.Bot):
 
     return embed_to_return
   
+
   # Add an option button to the list
   def add_option_button(self, button_name, button_emoji):
     self.option_buttons[button_name] = button_emoji
 
-  # # Process reactions appropriately
-  # def process_action(self, action):
 
+  # Process reactions by changing buttons and the current node accordingly  
+  def process_action(self, action):
+    if action not in (self.number_buttons + list(self.option_buttons.values())):
+        return
 
+    # 1) get the user's action and update curr_node to according next node
 
-  #   if (user == bot.user_using_now) and (
-  #       (reaction.emoji in bot.number_buttons) or
-  #       (reaction.emoji in bot.option_buttons.values())):
+    # TODO Make use of the function-as-parameter to make this a much cleaner and conceptual code
+    # process the additional buttons FIRST
+    if (action == self.option_buttons[BACK_BUTTON_NAME]):
+      if len(self.stack) != 0:
+        next_node = self.stack.pop()
+      else:
+          next_node = self.curr_node
 
-  #       # 1) display the embed and add buttons
-  #       curr_embed = bot.create_curr_node_embed()
-  #       bot.curr_msg = await bot.curr_msg.edit(embed=curr_embed)
+    elif (action == self.option_buttons[MENU_BUTTON_NAME]):
+      next_node = PageTree.get_root()
+      self.stack.append(self.curr_node)
 
-  #       for button in bot.option_buttons.values():
-  #           await bot.curr_msg.add_reaction(button)
+    # TODO FIND A WAY TO MAKE THIS BE IN THE MAIN FILE (AS IT SEEMS MORE UI THAN MODEL)    
+    elif (action == self.option_buttons[CLOSE_BUTTON_NAME]):
+      self.curr_msg.delete()
+      exit(0)
 
-  #       for button in bot.number_buttons:
-  #           await bot.curr_msg.add_reaction(button)
+    else:
+      for i in range(len(self.number_buttons)):
+        if action == self.number_buttons[i]:
+          user_reaction_num = i
+          break
+      next_node = self.curr_node.list_children[user_reaction_num]
+      self.stack.append(self.curr_node)
 
-  #       # 2) get the user's reaction and fetch the according next node
-  #       user_reaction_num = None
-
-  #       # process the additional buttons FIRST
-  #       if (reaction.emoji == bot.option_buttons[nb.BACK_BUTTON_NAME]):
-  #           if len(bot.stack) != 0:
-  #               next_node = bot.stack.pop()
-  #           else:
-  #               next_node = bot.curr_node
-
-  #       elif (reaction.emoji == bot.option_buttons[nb.MENU_BUTTON_NAME]):
-  #           next_node = PageTree.get_root()
-  #           bot.stack.append(bot.curr_node)
-
-  #       elif (reaction.emoji == bot.option_buttons[nb.CLOSE_BUTTON_NAME]):
-  #           bot.curr_msg.delete()
-  #           exit(0)
-
-  #       else:
-  #           for i in range(len(bot.number_buttons)):
-  #               if reaction.emoji == bot.number_buttons[i]:
-  #                   user_reaction_num = i
-  #                   break
-  #           next_node = bot.curr_node.list_children[user_reaction_num]
-  #           bot.stack.append(bot.curr_node)
-
-  #       # 3) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
-  #       bot.curr_node = next_node
-  #       curr_embed = bot.create_curr_node_embed()
-  #       curr_num_buttons = len(bot.curr_node.list_children)
-  #       new_number_buttons = nb.ALL_BUTTONS[0:curr_num_buttons]
+    # 3) update the current node to the next node and set the number of buttons (= the number of its children)
+    self.curr_node = next_node
+    curr_num_buttons = len(self.curr_node.list_children)
+    self.new_number_buttons = ALL_BUTTONS[0:curr_num_buttons]

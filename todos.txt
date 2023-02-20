@@ -4,12 +4,12 @@ Doing now:
 In task:
 ) create functional version of this that can be used as reference to testing the functionality
  Problems to fix:
- - seems like I need to press reaction twice to jump to the same page
  - wait time is not clear (I don't know when I can press the reactions)  
 
 
 Akira 2023/01/24
 ) remove unneeded static variables / introduce static variables and check if functionality is still maintained
+) try to use the function as object thing to make the code for processing actions simpler
 1) reorganize the file structure so that it reflects the ui / backside split
 2) reorganize the classes in an accordingly fashion
 3) debug the code so that it runs faster and without bug
