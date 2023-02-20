@@ -59,12 +59,6 @@ def getFirstPage():
 
 
 class NaviBot(commands.Bot):
-  additional_buttons = None
-  curr_node = None
-  number_buttons = []
-  stack = []
-  curr_msg = None
-  user_using_now = None
 
   def __init__(self, *args, **kwargs):
     super(NaviBot, self).__init__(*args, **kwargs)
@@ -73,8 +67,13 @@ class NaviBot(commands.Bot):
   # Sets up the bot such that it has additional buttons, current node and
   # other attributes initialized; should run each time we call menu
   def setUp(self, user_using_now=None):
-    #Add additional buttons
+    # declaring the variables
     self.additional_buttons = {}
+    self.number_buttons = []
+    self.curr_msg = None
+    self.user_using_now = None
+    
+    #Add additional buttons
     add_button(self.additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
     add_button(self.additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
     add_button(self.additional_buttons, CLOSE_BUTTON_NAME, CLOSE_ICON)
@@ -120,6 +119,13 @@ if __name__ == "__main__":
 
     for button in bot.number_buttons:
       await bot.curr_msg.add_reaction(button)
+
+  # REALLY HERE FOR DEBUG
+  @bot.command()
+  async def kill(ctx):
+    if bot.curr_msg:
+      bot.curr_msg.delete()
+    exit(0)
 
   @bot.event
   async def on_reaction_add(reaction, user):

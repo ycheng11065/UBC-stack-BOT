@@ -28,7 +28,7 @@ class Menu():
       if f.endswith(".json"):
         json_path = path + "/" + f
         page_found = True
-        break;
+        break
 
     if not page_found:
       print("No such page found.")
@@ -48,7 +48,7 @@ class Menu():
 
     # for every folder in this folder, run the same thing
     for f in os.listdir(path):
-      full_path = path + "/" + f;
+      full_path = path + "/" + f
       if os.path.isdir(full_path):
         new_child = Menu(full_path)
         self.list_children.append(new_child) # list of all children whose json were found
