@@ -21,14 +21,16 @@ TEN = "🔟"
 
 BACK_ICON = ARROW_LEFT
 MENU_ICON = "⏪"
+CLOSE_ICON = "❌"
 
 BACK_BUTTON_NAME = "back_button"
 MENU_BUTTON_NAME = "menu_button"
+CLOSE_BUTTON_NAME = "close_button"
 NUMBER_BUTTONS_NAME = "number_buttons"
 
 ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
 
-my_secret = os.environ['key']  # Our token for discord bot to run
+my_secret = "MTA3Njk0MTEzMjE5OTY0MTEwOA.GTm3Ud.WMsils4ApqHxPP-El4fGQQQGzNYnixXE8KScVg"  # Our token for discord bot to run
 
 
 #helper functions
@@ -56,7 +58,7 @@ def getFirstPage():
 class NaviBot(commands.Bot):
   additional_buttons = None
   curr_node = None
-  numer_buttons = []
+  number_buttons = []
   stack = []
   curr_msg = None
   user_using_now = None
@@ -72,6 +74,7 @@ class NaviBot(commands.Bot):
     self.additional_buttons = {}
     add_button(self.additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
     add_button(self.additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
+    add_button(self.additional_buttons, CLOSE_BUTTON_NAME, CLOSE_ICON)
 
     #Setup the current node
     self.curr_node = getFirstPage()
@@ -150,6 +153,10 @@ if __name__ == "__main__":
       elif (reaction.emoji == bot.additional_buttons[MENU_BUTTON_NAME]):
         next_node = getFirstPage()
         bot.stack.append(bot.curr_node)
+
+      elif (reaction.emoji == bot.additional_buttons[CLOSE_BUTTON_NAME]):
+        bot.curr_msg.delete()
+        exit(0)
 
       else:
         for i in range(len(bot.number_buttons)):
