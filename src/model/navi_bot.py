@@ -30,7 +30,10 @@ NUMBER_BUTTONS_NAME = "number_buttons"
 
 ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
 
-my_secret = "MTA3Njk0MTEzMjE5OTY0MTEwOA.GTm3Ud.WMsils4ApqHxPP-El4fGQQQGzNYnixXE8KScVg"  # Our token for discord bot to run
+TOKEN_FILE_PATH = "C:/Users/mashi/Desktop/bot_token.txt"
+
+with open(TOKEN_FILE_PATH) as file:
+  my_secret = file.read() # Our token for discord bot to run
 
 
 #helper functions
