@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import os
-import files_manager
+from files_manager import PageTree
 import asyncio
 
 #Need to time out the others once we've used it up already
@@ -55,13 +55,13 @@ def add_button(dict_buttons, button_name, button_emoji):
 
 # Returns very first page
 def getFirstPage():
-  return files_manager.return_root_of_tree()
+  return PageTree.get_root()
 
 
 class NaviBot(commands.Bot):
 
   def __init__(self, *args, **kwargs):
-    super(NaviBot, self).__init__(*args, **kwargs)
+    super().__init__(*args, **kwargs)
     self.setUp()
 
   # Sets up the bot such that it has additional buttons, current node and
@@ -72,7 +72,7 @@ class NaviBot(commands.Bot):
     self.number_buttons = []
     self.curr_msg = None
     self.user_using_now = None
-    
+
     #Add additional buttons
     add_button(self.additional_buttons, MENU_BUTTON_NAME, MENU_ICON)
     add_button(self.additional_buttons, BACK_BUTTON_NAME, BACK_ICON)
