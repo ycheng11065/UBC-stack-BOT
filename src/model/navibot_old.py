@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import os
-from files_manager import PageTree
+from page_tree import PageTree
 import asyncio
 
 #Need to time out the others once we've used it up already
