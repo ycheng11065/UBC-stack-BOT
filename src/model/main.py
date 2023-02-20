@@ -1,9 +1,9 @@
 import discord
 import os
 
-from src.model import navibot as nb
-from model.navibot import NaviBot
-from model.page_tree import PageTree
+import navibot as nb
+from navibot import NaviBot
+from page_tree import PageTree
 
 
 TOKEN_FILE_PATH = "C:/Users/mashi/Desktop/bot_token.txt"
@@ -35,7 +35,7 @@ async def menu(ctx):
 
     bot.curr_msg = await ctx.send(embed=curr_embed)
 
-    for button in bot.additional_buttons.values():
+    for button in bot.option_buttons.values():
         await bot.curr_msg.add_reaction(button)
 
     for button in bot.number_buttons:
@@ -59,33 +59,23 @@ async def on_reaction_add(reaction, user):
     
     if (user == bot.user_using_now) and (
         (reaction.emoji in bot.number_buttons) or
-        (reaction.emoji in bot.additional_buttons.values())):
+        (reaction.emoji in bot.option_buttons.values())):
 
-        # 1) display the embed and add buttons
-        curr_embed = bot.create_curr_node_embed()
-        bot.curr_msg = await bot.curr_msg.edit(embed=curr_embed)
-
-        for button in bot.additional_buttons.values():
-            await bot.curr_msg.add_reaction(button)
-
-        for button in bot.number_buttons:
-            await bot.curr_msg.add_reaction(button)
-
-        # 2) get the user's reaction and fetch the according next node
+        # 1) get the user's reaction and fetch the according next node
         user_reaction_num = None
 
         # process the additional buttons FIRST
-        if (reaction.emoji == bot.additional_buttons[nb.BACK_BUTTON_NAME]):
+        if (reaction.emoji == bot.option_buttons[nb.BACK_BUTTON_NAME]):
             if len(bot.stack) != 0:
                 next_node = bot.stack.pop()
             else:
                 next_node = bot.curr_node
 
-        elif (reaction.emoji == bot.additional_buttons[nb.MENU_BUTTON_NAME]):
+        elif (reaction.emoji == bot.option_buttons[nb.MENU_BUTTON_NAME]):
             next_node = PageTree.get_root()
             bot.stack.append(bot.curr_node)
 
-        elif (reaction.emoji == bot.additional_buttons[nb.CLOSE_BUTTON_NAME]):
+        elif (reaction.emoji == bot.option_buttons[nb.CLOSE_BUTTON_NAME]):
             bot.curr_msg.delete()
             exit(0)
 
@@ -97,14 +87,14 @@ async def on_reaction_add(reaction, user):
             next_node = bot.curr_node.list_children[user_reaction_num]
             bot.stack.append(bot.curr_node)
 
-        # 3) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
+        # 2) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
         bot.curr_node = next_node
         curr_embed = bot.create_curr_node_embed()
         curr_num_buttons = len(bot.curr_node.list_children)
         new_number_buttons = nb.ALL_BUTTONS[0:curr_num_buttons]
 
-        # 4) remove all buttons that are not needed
-        for button in (list(bot.additional_buttons.values()) +
+        # 3) remove all buttons that are not needed
+        for button in (list(bot.option_buttons.values()) +
                         bot.number_buttons):
             await bot.curr_msg.remove_reaction(button, bot.user_using_now)
         for button in bot.number_buttons:
@@ -114,6 +104,78 @@ async def on_reaction_add(reaction, user):
         # if (len(number_buttons) != len(curr_node.list_children)):
 
         bot.number_buttons = new_number_buttons
+
+        # 4) display the new embed and add buttons
+        curr_embed = bot.create_curr_node_embed()
+        bot.curr_msg = await bot.curr_msg.edit(embed=curr_embed)
+
+        for button in bot.option_buttons.values():
+            await bot.curr_msg.add_reaction(button)
+
+        for button in bot.number_buttons:
+            await bot.curr_msg.add_reaction(button)
+
+
+
+    """
+    if (user == bot.user_using_now) and (
+        (reaction.emoji in bot.number_buttons) or
+        (reaction.emoji in bot.option_buttons.values())):
+
+        # 1) get the user's reaction and fetch the according next node
+        user_reaction_num = None
+
+        # process the additional buttons FIRST
+        if (reaction.emoji == bot.option_buttons[nb.BACK_BUTTON_NAME]):
+            if len(bot.stack) != 0:
+                next_node = bot.stack.pop()
+            else:
+                next_node = bot.curr_node
+
+        elif (reaction.emoji == bot.option_buttons[nb.MENU_BUTTON_NAME]):
+            next_node = PageTree.get_root()
+            bot.stack.append(bot.curr_node)
+
+        elif (reaction.emoji == bot.option_buttons[nb.CLOSE_BUTTON_NAME]):
+            bot.curr_msg.delete()
+            exit(0)
+
+        else:
+            for i in range(len(bot.number_buttons)):
+                if reaction.emoji == bot.number_buttons[i]:
+                    user_reaction_num = i
+                    break
+            next_node = bot.curr_node.list_children[user_reaction_num]
+            bot.stack.append(bot.curr_node)
+
+        # 2) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
+        bot.curr_node = next_node
+        curr_embed = bot.create_curr_node_embed()
+        curr_num_buttons = len(bot.curr_node.list_children)
+        new_number_buttons = nb.ALL_BUTTONS[0:curr_num_buttons]
+
+        # 3) remove all buttons that are not needed
+        for button in (list(bot.option_buttons.values()) +
+                        bot.number_buttons):
+            await bot.curr_msg.remove_reaction(button, bot.user_using_now)
+        for button in bot.number_buttons:
+            if button not in new_number_buttons:
+                await bot.curr_msg.remove_reaction(button, bot.user)
+
+        # if (len(number_buttons) != len(curr_node.list_children)):
+
+        bot.number_buttons = new_number_buttons
+
+        # 4) display the new embed and add buttons
+        curr_embed = bot.create_curr_node_embed()
+        bot.curr_msg = await bot.curr_msg.edit(embed=curr_embed)
+
+        for button in bot.option_buttons.values():
+            await bot.curr_msg.add_reaction(button)
+
+        for button in bot.number_buttons:
+            await bot.curr_msg.add_reaction(button)
+    """
 
 @bot.event
 async def on_ready():
