@@ -15,7 +15,6 @@ class PageTree:
   @staticmethod
   def get_root():
     if not PageTree.root:
-      print("creating new tree!")
       PageTree.root = PageTree.Page(ROOT_PAGE_PATH)
     return PageTree.root
 
