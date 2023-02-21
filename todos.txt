@@ -1,6 +1,5 @@
 
 Doing now: 
-) try to use the function as object thing to make the code for processing actions simpler
 
 
 Akira 2023/01/24

@@ -14,7 +14,7 @@ LOADING_FOOTER_TEXT = "LOADING NOW"
 # adds option buttons first, in order as given in bot.option buttons;
 # and then adds number buttons
 async def add_bot_reactions(bot, old_reactions=None):
-    for button in (list(bot.option_buttons.values()) + bot.number_buttons):
+    for button in (list(bot.option_buttons.keys()) + bot.number_buttons):
         if (old_reactions == None) or (button not in old_reactions):
             await bot.curr_msg.add_reaction(button)
 
@@ -30,6 +30,16 @@ async def display_loading_in_embed(curr_msg, curr_embed):
     curr_embed.remove_footer()
     curr_embed.set_footer(text=LOADING_FOOTER_TEXT)
     return await curr_msg.edit(embed=curr_embed)
+
+# Processes any action that is meant to be handled by ui
+async def process_ui_actions(action, bot):
+    is_ui_related = False
+    # CLOSE button case
+    if action == nb.CLOSE_ICON:
+        await bot.curr_msg.delete()
+        exit(0)
+    
+    return is_ui_related
 
 
 # Fetching token to run the discord bot
@@ -83,44 +93,17 @@ async def on_reaction_add(reaction, user):
     if ((user == bot.user) or (bot.curr_msg == None) or (user != bot.user_using_now) or 
         # if reaction not in the button options, ignore
         ((reaction.emoji not in bot.number_buttons) and 
-         (reaction.emoji not in bot.option_buttons.values())) ):
+         (reaction.emoji not in bot.option_buttons.keys())) ):
         return
     
     # otherwise
     # 1) get the user's reaction and fetch the according next node
     await display_loading_in_embed(bot.curr_msg, bot.create_curr_node_embed())
 
-    user_reaction_num = None
-
-    # process the additional buttons FIRST
-    if (reaction.emoji == bot.option_buttons[nb.BACK_BUTTON_NAME]):
-        if len(bot.stack) != 0:
-            next_node = bot.stack.pop()
-        else:
-            next_node = bot.curr_node
-
-    elif (reaction.emoji == bot.option_buttons[nb.MENU_BUTTON_NAME]):
-        next_node = PageTree.get_root()
-        bot.stack.append(bot.curr_node)
-
-    elif (reaction.emoji == bot.option_buttons[nb.CLOSE_BUTTON_NAME]):
-        await bot.curr_msg.delete()
-        exit(0)
-
-    else:
-        for i in range(len(bot.number_buttons)):
-            if reaction.emoji == bot.number_buttons[i]:
-                user_reaction_num = i
-                break
-        next_node = bot.curr_node.list_children[user_reaction_num]
-        bot.stack.append(bot.curr_node)
-
-    # 2) update the current node to the next node, update embed, and set the number of buttons (= the number of its children)
-    bot.curr_node = next_node
-    curr_embed = bot.create_curr_node_embed()
-
     old_number_buttons = bot.number_buttons
-    bot.number_buttons = nb.ALL_BUTTONS[0:len(bot.curr_node.list_children)]        
+    # process both ui related and unrelated actions
+    ui_related_action = await process_ui_actions(reaction.emoji, bot)
+    if not ui_related_action: bot.process_action(reaction.emoji)       
     
     # 3) remove all buttons that are not needed
     # remove reaction by user first
@@ -129,9 +112,9 @@ async def on_reaction_add(reaction, user):
     await remove_bot_reactions(bot, old_number_buttons, bot.number_buttons)
 
     # 4) display the new embed and add buttons
-    bot.curr_msg = await display_loading_in_embed(bot.curr_msg, curr_embed)
+    bot.curr_msg = await display_loading_in_embed(bot.curr_msg, bot.create_curr_node_embed())
     # add appropriate reactions
-    await add_bot_reactions(bot, old_number_buttons + list(bot.option_buttons.values()))
+    await add_bot_reactions(bot, old_number_buttons + list(bot.option_buttons.keys()))
     # Remove the display of LOADING
     bot.curr_msg = await bot.curr_msg.edit(embed=bot.create_curr_node_embed())
 

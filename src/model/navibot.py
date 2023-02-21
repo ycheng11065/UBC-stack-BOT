@@ -23,10 +23,8 @@ CLOSE_ICON = "❌"
 BACK_BUTTON_NAME = "back_button"
 MENU_BUTTON_NAME = "menu_button"
 CLOSE_BUTTON_NAME = "close_button"
-NUMBER_BUTTONS_NAME = "number_buttons"
 
 ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
-
 
 class NaviBot(commands.Bot):
 
@@ -48,7 +46,6 @@ class NaviBot(commands.Bot):
 
   def close_button_func(self):
     exit(0)
-    return None
 
   def process_number_buttons(self, action):
     user_reaction_num = self.number_buttons.index(action)
@@ -98,20 +95,21 @@ class NaviBot(commands.Bot):
 
   # Add an option button to the list
   def add_option_button(self, button_name, button_emoji, b_func):
-    self.option_buttons[button_name] = button_emoji
-    self.option_button_functions[button_name] = b_func
+    self.option_buttons[button_emoji] = button_name
+    self.option_button_functions[button_emoji] = b_func
 
 
-  # Process reactions by changing buttons and the current node accordingly  
+  # Process reactions by changing buttons and the current node accordingly, and 
+  # returning the old number button list
   def process_action(self, action):
-    if action not in (self.number_buttons + list(self.option_buttons.values())):
+    if action not in (self.number_buttons + list(self.option_buttons.keys())):
         return
 
     # 1) get the user's action and update curr_node to according next node
 
     # process the additional buttons FIRST
     # if action is in the optional buttons
-    if action in self.option_buttons.values():
+    if action in self.option_buttons.keys():
       # then execute the according function
       next_node = self.option_button_functions[action]()
 
@@ -121,4 +119,6 @@ class NaviBot(commands.Bot):
     # 3) update the current node to the next node and set the number of buttons (= the number of its children)
     self.curr_node = next_node
     curr_num_buttons = len(self.curr_node.list_children)
-    self.new_number_buttons = ALL_BUTTONS[0:curr_num_buttons]
+    self.number_buttons = ALL_BUTTONS[0:curr_num_buttons]
+
+    return 
