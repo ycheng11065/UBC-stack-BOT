@@ -1,7 +1,7 @@
 {
   "function_name": "majorslist",
   "embed": {
-    "title": "select a major",
+    "title": "select a specialization",
     "fields": [
       {
         "field_name": "",
