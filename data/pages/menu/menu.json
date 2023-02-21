@@ -1,5 +1,6 @@
 {
   "function_name": "menu",
+  "name_shown_on_bot": "Menu",
   "embed": {
     "title": "Menu",
     "fields": [
@@ -10,22 +11,22 @@
       },
       {
         "field_name": "",
-        "field_value":":arrow_left:  returns to the previous page",
+        "field_value": ":arrow_left:  returns to the previous page",
         "field_inline": false
       },
       {
         "field_name": "",
-        "field_value":":rewind:  returns to menu page to start over \n \n *this is not a replacement for official UBC info*",
+        "field_value": ":rewind:  returns to menu page to start over \n \n *this is not a replacement for official UBC info*",
         "field_inline": false
       },
       {
         "field_name": "",
-        "field_value":"\n",
+        "field_value": "\n",
         "field_inline": false
       },
       {
         "field_name": "navigate to :",
-        "field_value": ":one:  course navigation",
+        "field_value": "",
         "field_inline": false
       }
     ]

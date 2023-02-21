@@ -1,23 +1,8 @@
 {
   "function_name": "major_select_one",
+  "name_shown_on_bot": "major",
   "embed": {
     "title": "select type of info",
-    "fields": [
-      {
-        "field_name": "",
-        "field_value": ":one:  summary",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":two:  general science requirements",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":three: specializations",
-        "field_inline": false
-      }
-    ]
+    "fields": []
   }
 }

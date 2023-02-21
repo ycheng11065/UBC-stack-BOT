@@ -1,5 +1,6 @@
 {
   "function_name": "cpsc300400lvlcourses",
+  "name_shown_on_bot": "300 and 400-level courses",
   "embed": {
     "title": "300 and 400-level courses",
     "fields": [
@@ -18,7 +19,6 @@
         "field_value": "",
         "field_inline": true
       },
-      
       {
         "field_name": "graduation requirements",
         "field_value": "[CPSC 310](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=310) \n [CPSC 313](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=313) \n [CPSC 320](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=320) \n CPSC 300-level or higher \n CPSC 400-level or higher",

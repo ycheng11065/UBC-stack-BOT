@@ -1,5 +1,6 @@
 {
   "function_name": "major_summary",
+  "name_shown_on_bot": "summary",
   "embed": {
     "title": "summary of overall credits for degree",
     "fields": [
@@ -22,7 +23,7 @@
         "field_name": "",
         "field_value": "overall science credits \n upper year science credits",
         "field_inline": true
-      },  
+      },
       {
         "field_name": "",
         "field_value": "",
@@ -47,7 +48,7 @@
         "field_name": ":",
         "field_value": "0 \n 24",
         "field_inline": true
-      }  
+      }
     ]
   }
 }

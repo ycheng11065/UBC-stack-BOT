@@ -1,18 +1,8 @@
 {
   "function_name": "majorslist",
+  "name_shown_on_bot": "specializations",
   "embed": {
     "title": "select a specialization",
-    "fields": [
-      {
-        "field_name": "",
-        "field_value": ":one:  computer science",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":two:  statistics",
-        "field_inline": false
-      }
-    ]
+    "fields": []
   }
 }

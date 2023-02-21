@@ -1,5 +1,6 @@
 {
   "function_name": "lower_level_major",
+  "name_shown_on_bot": "lower level requirement",
   "embed": {
     "title": "lower level requirements",
     "fields": [

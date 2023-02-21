@@ -1,23 +1,9 @@
 {
   "function_name": "cpscx00lvlcourses",
+  "name_shown_on_bot": "computer science",
   "embed": {
     "title": "computer science required courses",
     "fields": [
-      {
-        "field_name": "",
-        "field_value": ":one:  100-level courses",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value": ":two:  200-level courses",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value": ":three:  300 and 400-level courses",
-        "field_inline": false
-      },
       {
         "field_name": "",
         "field_value": "52 credits of electives, including other general science requirements",

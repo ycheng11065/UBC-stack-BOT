@@ -1,13 +1,8 @@
 {
   "function_name": "Degrees",
+  "name_shown_on_bot": "science",
   "embed": {
     "title": "degree selection",
-    "fields": [
-      {
-        "field_name": "",
-        "field_value": ":one:  major",
-        "field_inline": false
-      }
-    ]
+    "fields": []
   }
 }

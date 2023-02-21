@@ -46,6 +46,7 @@ class PageTree:
       self.list_children = []
       self.title = ''
       self.func_name = ''
+      self.name_shown_on_bot = ''
       
       # if it contains a json with same name as itself
       page_found = False
@@ -66,18 +67,9 @@ class PageTree:
         content = json.loads(json_content)
         # {course_nav: folders, select2: null, select3: null}
         self.func_name = content['function_name']
+        self.name_shown_on_bot = content['name_shown_on_bot']
         self.title = content['embed']['title']
         self.list_selection = content['embed']['fields']
-
-      # TODO remove when this is all refactored
-      # remove all embed fields that have numbers to their names
-      # these will be hardcoded fields for now
-      for selection in self.list_selection:
-        for num_button_icon in (ALL_BUTTONS_IN_UNICODE + ALL_BUTTONS_IN_STRING):
-          if selection["field_value"].strip().startswith(num_button_icon):
-            print(selection["field_value"])
-            self.list_selection.remove(selection)
-            break
 
       # I build the menu as I want it with the content read
 
@@ -93,7 +85,7 @@ class PageTree:
           # add new fields that are dynamically created out of children
           self.list_selection.append({
             "field_name": "",
-            "field_value": ALL_BUTTONS_IN_UNICODE[button_count] + "  " + new_child.func_name,
+            "field_value": ALL_BUTTONS_IN_UNICODE[button_count] + "  " + new_child.name_shown_on_bot,
             "field_inline": False
           })
           button_count += 1

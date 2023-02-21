@@ -1,5 +1,6 @@
 {
   "function_name": "stat300400lvlcourses",
+  "name_shown_on_bot": "300 and 400-level courses",
   "embed": {
     "title": "300 and 400-level courses",
     "fields": [
@@ -18,7 +19,6 @@
         "field_value": "",
         "field_inline": true
       },
-      
       {
         "field_name": "graduation requirements",
         "field_value": "[STAT 302](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=302) or [MATH 302](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=302) `recommended in second year` \n [STAT 301](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=301) \n [STAT 305](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=305) \n [STAT 306](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=STAT&course=306) \n [MATH 303](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=303) \n [MATH 307](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=MATH&course=307) \n STAT 300-level or higher \n MATH 300-level or higher \n [thematic courses 300-level or higher \n STAT 400-level or higher](https://www.stat.ubc.ca/thematic-concentrations)",

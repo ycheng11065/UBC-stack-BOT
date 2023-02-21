@@ -1,5 +1,6 @@
 {
   "function_name": "science_art_req",
+  "name_shown_on_bot": "science and art requirement",
   "embed": {
     "title": "science and art requirement",
     "fields": [

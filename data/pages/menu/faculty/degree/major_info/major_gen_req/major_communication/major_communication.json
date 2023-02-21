@@ -1,5 +1,6 @@
 {
   "function_name": "communication",
+  "name_shown_on_bot": "communication requirement",
   "embed": {
     "title": "communication requirements",
     "fields": [

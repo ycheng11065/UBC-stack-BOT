@@ -1,18 +1,8 @@
 {
   "function_name": "faculty",
+  "name_shown_on_bot": "course navigation",
   "embed": {
     "title": "faculty",
-    "fields": [
-      {
-        "field_name": "choose your desired faculty",
-        "field_value": ":one:  science",
-        "field_inline": false
-      }, 
-      {
-        "field_name": "",
-        "field_value": ":two: arts",
-        "field_inline": false
-      }
-    ]
+    "fields": []
   }
 }

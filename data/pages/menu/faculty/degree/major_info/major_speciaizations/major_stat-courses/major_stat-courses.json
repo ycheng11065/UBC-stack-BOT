@@ -1,31 +1,13 @@
 {
   "function_name": "statx00lvlcourses",
+  "name_shown_on_bot": "statistics",
   "embed": {
     "title": "statistics required courses",
     "fields": [
       {
         "field_name": "",
-        "field_value": ":one:  100-level courses",
-        "field_inline": false
-        
-      },
-      {
-        "field_name": "",
-        "field_value": ":two:  200-level courses",
-        "field_inline": false
-        
-      },
-      {
-        "field_name": "",
-        "field_value": ":three:  300 and 400-level courses",
-        "field_inline": false
-        
-      },
-      {
-        "field_name": "",
         "field_value": "37 credits of electives, including other general science requirements",
         "field_inline": false
-        
       }
     ]
   }

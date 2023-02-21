@@ -1,5 +1,6 @@
 {
   "function_name": "science_breadth_req",
+  "name_shown_on_bot": "science breadth requirement",
   "embed": {
     "title": "science breadth requirement",
     "fields": [

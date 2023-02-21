@@ -1,5 +1,6 @@
 {
   "function_name": "cpsc100lvlcourses",
+  "name_shown_on_bot": "100-level courses",
   "embed": {
     "title": "100-level courses",
     "fields": [
@@ -7,12 +8,11 @@
         "field_name": "promotional requirements",
         "field_value": "[CPSC 110](https://courses.students.ubc.ca/cs/courseschedule?pname=subjarea&tname=subj-course&dept=CPSC&course=110) `or CPSC 103 + CPSC 107`",
         "field_inline": true
-        
       },
       {
         "field_name": "",
         "field_value": "",
-        "field_inline":true
+        "field_inline": true
       },
       {
         "field_name": "credits",

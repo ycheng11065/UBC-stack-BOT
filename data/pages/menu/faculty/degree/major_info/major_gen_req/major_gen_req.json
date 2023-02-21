@@ -1,38 +1,8 @@
 {
   "function_name": "gen_reqs",
+  "name_shown_on_bot": "general science requirements",
   "embed": {
     "title": "general requirements",
-    "fields": [
-      {
-        "field_name": "",
-        "field_value": ":one:  communication requirement",
-        "field_inline": false  
-      },
-      {
-        "field_name": "",
-        "field_value":" :two:  science and art requirement",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":three:  science breadth requirement",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":four:  lower level requirement",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":five:  upper year requirement",
-        "field_inline": false
-      },
-      {
-        "field_name": "",
-        "field_value":":six:  promotional requirement",
-        "field_inline": false
-      }
-    ]
+    "fields": []
   }
 }
