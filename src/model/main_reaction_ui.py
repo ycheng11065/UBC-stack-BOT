@@ -7,6 +7,7 @@ from page_tree import PageTree
 
 
 TOKEN_FILE_PATH = "C:/Users/mashi/Desktop/bot_token.txt"
+LOADING_FOOTER_TEXT = "LOADING NOW"
 
 
 # Adds reactions appropriately, while not attempting to add the ones displayed already
@@ -24,11 +25,16 @@ async def remove_bot_reactions(bot, old_reactions, new_reactions=None):
         if (new_reactions == None) or (reaction not in new_reactions):
             await bot.curr_msg.remove_reaction(reaction, bot.user)
 
+# Adds a footer indicating we're loading things.
+async def display_loading_in_embed(curr_msg, curr_embed):
+    curr_embed.remove_footer()
+    curr_embed.set_footer(text=LOADING_FOOTER_TEXT)
+    return await curr_msg.edit(embed=curr_embed)
+
 
 # Fetching token to run the discord bot
 with open(TOKEN_FILE_PATH) as file:
   my_secret = file.read() # Our token for discord bot to run
-
 
 
 intents = discord.Intents.default()
@@ -42,6 +48,23 @@ bot = NaviBot(command_prefix='!',
             intents=intents,
             status=discord.Status.idle)
 
+
+@bot.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(bot))
+
+
+# First menu here?
+@bot.event
+async def on_message(message):
+    if message.author == bot.user:
+        return
+
+    print(f'Message from {message.author}: {message.content}')
+
+    await bot.process_commands(message)
+
+
 @bot.command()
 async def menu(ctx):
     # 0) setting up: starting note is set to the root of tree
@@ -53,12 +76,6 @@ async def menu(ctx):
 
     await add_bot_reactions(bot)
 
-# REALLY HERE FOR DEBUG
-@bot.command()
-async def kill(ctx):
-    if bot.curr_msg:
-        await bot.curr_msg.delete()
-    exit(0)
 
 @bot.event
 async def on_reaction_add(reaction, user):
@@ -71,6 +88,8 @@ async def on_reaction_add(reaction, user):
     
     # otherwise
     # 1) get the user's reaction and fetch the according next node
+    await display_loading_in_embed(bot.curr_msg, bot.create_curr_node_embed())
+
     user_reaction_num = None
 
     # process the additional buttons FIRST
@@ -110,24 +129,20 @@ async def on_reaction_add(reaction, user):
     await remove_bot_reactions(bot, old_number_buttons, bot.number_buttons)
 
     # 4) display the new embed and add buttons
-    bot.curr_msg = await bot.curr_msg.edit(embed=curr_embed)
+    bot.curr_msg = await display_loading_in_embed(bot.curr_msg, curr_embed)
     # add appropriate reactions
-    await add_bot_reactions(bot, old_number_buttons)
+    await add_bot_reactions(bot, old_number_buttons + list(bot.option_buttons.values()))
+    # Remove the display of LOADING
+    bot.curr_msg = await bot.curr_msg.edit(embed=bot.create_curr_node_embed())
 
 
-@bot.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
 
-# First menu here?
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-
-    print(f'Message from {message.author}: {message.content}')
-
-    await bot.process_commands(message)
+# REALLY HERE FOR DEBUG
+@bot.command()
+async def kill(ctx):
+    if bot.curr_msg:
+        await bot.curr_msg.delete()
+    exit(0)
 
 
 # Running the actual bot
