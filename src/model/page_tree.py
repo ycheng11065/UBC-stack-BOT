@@ -20,7 +20,9 @@ EIGHT = "8️⃣"
 NINE = "9️⃣"
 TEN = "🔟"
 
-ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
+ALL_BUTTONS_IN_UNICODE = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
+ALL_BUTTONS_IN_STRING = [":one:", ":two:", ":three:", ":four:", ":five:", 
+                         ":six:", ":seven:", ":eight:", ":nine:", ":ten:"]
 
 class PageTree:
   root = None
@@ -67,6 +69,16 @@ class PageTree:
         self.title = content['embed']['title']
         self.list_selection = content['embed']['fields']
 
+      # TODO remove when this is all refactored
+      # remove all embed fields that have numbers to their names
+      # these will be hardcoded fields for now
+      for selection in self.list_selection:
+        for num_button_icon in (ALL_BUTTONS_IN_UNICODE + ALL_BUTTONS_IN_STRING):
+          if selection["field_value"].strip().startswith(num_button_icon):
+            print(selection["field_value"])
+            self.list_selection.remove(selection)
+            break
+
       # I build the menu as I want it with the content read
 
       # for every folder in this folder, run the same thing
@@ -77,10 +89,11 @@ class PageTree:
         if os.path.isdir(full_path):
           new_child = PageTree.Page(full_path)
           self.list_children.append(new_child) # list of all children whose json were found
-          # dynamically create new entries for embed
+          
+          # add new fields that are dynamically created out of children
           self.list_selection.append({
             "field_name": "",
-            "field_value": ALL_BUTTONS[button_count] + "  " + new_child.func_name,
+            "field_value": ALL_BUTTONS_IN_UNICODE[button_count] + "  " + new_child.func_name,
             "field_inline": False
           })
           button_count += 1

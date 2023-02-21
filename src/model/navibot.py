@@ -15,7 +15,7 @@ BACK_BUTTON_NAME = "back_button"
 MENU_BUTTON_NAME = "menu_button"
 CLOSE_BUTTON_NAME = "close_button"
 
-ALL_BUTTONS = page_tree.ALL_BUTTONS
+ALL_BUTTONS = page_tree.ALL_BUTTONS_IN_UNICODE
 
 class NaviBot(commands.Bot):
 
