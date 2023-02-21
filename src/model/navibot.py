@@ -32,20 +32,43 @@ class NaviBot(commands.Bot):
 
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
-  
+
+
+  def menu_button_func(self):
+    next_node = PageTree.get_root()
+    self.stack.append(self.curr_node)
+    return next_node
+
+  def back_button_func(self):
+    if len(self.stack) != 0:
+      next_node = self.stack.pop()
+    else:
+      next_node = self.curr_node
+    return next_node
+
+  def close_button_func(self):
+    exit(0)
+    return None
+
+  def process_number_buttons(self, action):
+    user_reaction_num = self.number_buttons.index(action)
+    next_node = self.curr_node.list_children[user_reaction_num]
+    self.stack.append(self.curr_node)
+    return next_node
 
   # Sets up the bot such that it has additional buttons, current node and
   # other attributes initialized; should run each time we call menu
   def setUp(self, user_using_now=None):
     # declaring the variables
     self.option_buttons = {}
+    self.option_button_functions = {}
     self.curr_msg = None
     self.user_using_now = None
 
     #Add additional buttons
-    self.add_option_button(MENU_BUTTON_NAME, MENU_ICON)
-    self.add_option_button(BACK_BUTTON_NAME, BACK_ICON)
-    self.add_option_button(CLOSE_BUTTON_NAME, CLOSE_ICON)
+    self.add_option_button(MENU_BUTTON_NAME, MENU_ICON, self.menu_button_func)
+    self.add_option_button(BACK_BUTTON_NAME, BACK_ICON, self.back_button_func)
+    self.add_option_button(CLOSE_BUTTON_NAME, CLOSE_ICON, self.close_button_func)
 
     #Setup the current node
     self.curr_node = PageTree.get_root()
@@ -74,8 +97,9 @@ class NaviBot(commands.Bot):
   
 
   # Add an option button to the list
-  def add_option_button(self, button_name, button_emoji):
+  def add_option_button(self, button_name, button_emoji, b_func):
     self.option_buttons[button_name] = button_emoji
+    self.option_button_functions[button_name] = b_func
 
 
   # Process reactions by changing buttons and the current node accordingly  
@@ -85,30 +109,14 @@ class NaviBot(commands.Bot):
 
     # 1) get the user's action and update curr_node to according next node
 
-    # TODO Make use of the function-as-parameter to make this a much cleaner and conceptual code
     # process the additional buttons FIRST
-    if (action == self.option_buttons[BACK_BUTTON_NAME]):
-      if len(self.stack) != 0:
-        next_node = self.stack.pop()
-      else:
-          next_node = self.curr_node
-
-    elif (action == self.option_buttons[MENU_BUTTON_NAME]):
-      next_node = PageTree.get_root()
-      self.stack.append(self.curr_node)
-
-    # TODO FIND A WAY TO MAKE THIS BE IN THE MAIN FILE (AS IT SEEMS MORE UI THAN MODEL)    
-    elif (action == self.option_buttons[CLOSE_BUTTON_NAME]):
-      self.curr_msg.delete()
-      exit(0)
+    # if action is in the optional buttons
+    if action in self.option_buttons.values():
+      # then execute the according function
+      next_node = self.option_button_functions[action]()
 
     else:
-      for i in range(len(self.number_buttons)):
-        if action == self.number_buttons[i]:
-          user_reaction_num = i
-          break
-      next_node = self.curr_node.list_children[user_reaction_num]
-      self.stack.append(self.curr_node)
+      next_node = self.process_number_buttons(action)
 
     # 3) update the current node to the next node and set the number of buttons (= the number of its children)
     self.curr_node = next_node

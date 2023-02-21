@@ -1,10 +1,9 @@
 
 Doing now: 
-) remove unneeded static variables / introduce static variables and check if functionality is still maintained
+) try to use the function as object thing to make the code for processing actions simpler
 
 
 Akira 2023/01/24
-) try to use the function as object thing to make the code for processing actions simpler
 1) reorganize the file structure so that it reflects the ui / backside split
 2) reorganize the classes in an accordingly fashion
 3) debug the code so that it runs faster and without bug

@@ -140,7 +140,7 @@ async def on_reaction_add(reaction, user):
 # REALLY HERE FOR DEBUG
 @bot.command()
 async def kill(ctx):
-    if bot.curr_msg:
+    if hasattr(bot, "curr_msg"):
         await bot.curr_msg.delete()
     exit(0)
 
