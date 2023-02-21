@@ -8,3 +8,5 @@ Akira 2023/01/24
 2) reorganize the classes in an accordingly fashion
 3) debug the code so that it runs faster and without bug
 4) learn how to use buttons and employ them instead of reactions
+
+- add a date stamp for the last update day for info

@@ -9,6 +9,19 @@ import os
 
 ROOT_PAGE_PATH = "././data/pages/menu/"
 
+ONE = "1️⃣"
+TWO = "2️⃣"
+THREE = "3️⃣"
+FOUR = "4️⃣"
+FIVE = "5️⃣"
+SIX = "6️⃣"
+SEVEN = "7️⃣"
+EIGHT = "8️⃣"
+NINE = "9️⃣"
+TEN = "🔟"
+
+ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
+
 class PageTree:
   root = None
 
@@ -54,12 +67,20 @@ class PageTree:
         self.title = content['embed']['title']
         self.list_selection = content['embed']['fields']
 
-
       # I build the menu as I want it with the content read
 
       # for every folder in this folder, run the same thing
+      button_count = 0
+
       for f in os.listdir(path):
         full_path = path + "/" + f
         if os.path.isdir(full_path):
           new_child = PageTree.Page(full_path)
           self.list_children.append(new_child) # list of all children whose json were found
+          # dynamically create new entries for embed
+          self.list_selection.append({
+            "field_name": "",
+            "field_value": ALL_BUTTONS[button_count] + "  " + new_child.func_name,
+            "field_inline": False
+          })
+          button_count += 1

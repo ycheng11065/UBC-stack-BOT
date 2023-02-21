@@ -1,20 +1,11 @@
 import discord
 from discord.ext import commands
+import page_tree
 from page_tree import PageTree
 
 
 ARROW_LEFT = "⬅"
 ARROW_RIGHT = "➡"
-ONE = "1️⃣"
-TWO = "2️⃣"
-THREE = "3️⃣"
-FOUR = "4️⃣"
-FIVE = "5️⃣"
-SIX = "6️⃣"
-SEVEN = "7️⃣"
-EIGHT = "8️⃣"
-NINE = "9️⃣"
-TEN = "🔟"
 
 BACK_ICON = ARROW_LEFT
 MENU_ICON = "⏪"
@@ -24,7 +15,7 @@ BACK_BUTTON_NAME = "back_button"
 MENU_BUTTON_NAME = "menu_button"
 CLOSE_BUTTON_NAME = "close_button"
 
-ALL_BUTTONS = [ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN]
+ALL_BUTTONS = page_tree.ALL_BUTTONS
 
 class NaviBot(commands.Bot):
 
