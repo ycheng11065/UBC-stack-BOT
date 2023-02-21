@@ -3,6 +3,12 @@
   "name_shown_on_bot": "course navigation",
   "embed": {
     "title": "faculty",
-    "fields": []
+    "fields": [
+      {
+        "field_name": "choose your desired faculty",
+        "field_value": "",
+        "field_inline": false
+      }
+    ]
   }
 }

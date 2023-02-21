@@ -1,0 +1,26 @@
+{
+  "function_name": "Test",
+  "name_shown_on_bot": "test",
+  "embed": {
+    "title": "title",
+    "fields_before": [
+      {
+        "field_name": "field 1",
+        "field_value": "val 1",
+        "field_inline": false
+      },
+      {
+        "field_name": "field 2",
+        "field_value": "val 2",
+        "field_inline": true
+      }
+    ],
+    "fields_after": [
+      {
+        "field_name": "field 99",
+        "field_value": "field 99",
+        "field_inline": false
+      }
+    ]
+  }
+}

@@ -8,7 +8,7 @@ ARROW_LEFT = "⬅"
 ARROW_RIGHT = "➡"
 
 BACK_ICON = ARROW_LEFT
-MENU_ICON = "⏪"
+MENU_ICON = "🏠" #"⏪"
 CLOSE_ICON = "❌"
 
 BACK_BUTTON_NAME = "back_button"
