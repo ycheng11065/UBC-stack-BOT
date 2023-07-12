@@ -1,7 +1,7 @@
 # UBC Navi-BOT, our Discord Bot for UBC Degree Navigation!
 Welcome to UBC NAVI-BOT, a Discord bot that facilitates UBC's degree navigation!
 
-*This project started during the NwHacks hackathon that took place at the University of British Columbia (UBC) on January 2023.
+*This project started during the NwHacks hackathon that took place at the University of British Columbia (UBC) on January 2023, with a 24 hours time limit.
 
 ## Team
 - Khue Do - UX/UI designer
